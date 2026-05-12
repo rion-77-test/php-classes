@@ -1,0 +1,43 @@
+// Open directory of Mysql in xampp
+cd /d DriveLetter:\xampp\mysql\bin
+
+//Run Mysql
+mysql -u root -p
+
+//create database
+create database NewDatabaseName;
+
+//Delete database
+drop database DatabaseName;
+
+//Select database
+use DatabaseName;
+
+//Show tables
+show tables;
+
+//Create table
+create table TableNameInPlural
+(
+ ColumnName DataType Attribute(optional),   
+ ColumnName DataType Attribute(optional),  
+ ColumnName DataType Attribute(optional)   
+);
+
+   // Example
+    create table students
+    (
+    id int unsigned primary key auto_increment,
+    name varchar(100) not null,
+    email varchar(120) unique,
+    address varchar(255),
+    is_inactive tinyint default 0
+    );
+
+// Show particulat table  
+describe TableName;
+OR
+desc TableName;
+
+// Delete Table
+drop table TableName;

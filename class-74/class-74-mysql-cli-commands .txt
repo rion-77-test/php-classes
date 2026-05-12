@@ -1,0 +1,8 @@
+// Open directory of mysql in xampp
+cd /d DriveLetter:\xampp\mysql\bin
+
+//run Mysql
+mysql -u root -p
+
+//create database
+create database NewDatabaseName;

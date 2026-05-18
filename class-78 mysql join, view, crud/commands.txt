@@ -1,0 +1,17 @@
+INSERT INTO results(student_id, score, exam_type) values(1, 90, "Mid-1");
+INSERT INTO results(student_id, score, exam_type) values(2, 20, "Mid-1");
+INSERT INTO results(student_id, score, exam_type) values(3, 55, "Mid-1");
+INSERT INTO results(student_id, score, exam_type) values(4, 48, "Mid-1");
+INSERT INTO results(student_id, score, exam_type) values(5, 80, "Mid-2");
+INSERT INTO results(student_id, score, exam_type) values(7, 33, "Mid-2");
+INSERT INTO results(student_id, score, exam_type) values(1, 45, "Mid-2");
+INSERT INTO results(student_id, score, exam_type) values(1, 88, "Mid-2");
+
+SELECT results.student_id, students.full_name, results.score, results.exam_type FROM
+students, results WHERE results.student_id = students.id;
+
+SELECT r.student_id, s.full_name, r.score as marks, r.exam_type FROM
+students AS s, results r WHERE r.student_id = s.id;
+
+SELECT results.student_id, students.full_name, results.score, results.exam_type FROM students, results WHERE results.student_id = students.id AND results.exam_type="Mid-1";
+

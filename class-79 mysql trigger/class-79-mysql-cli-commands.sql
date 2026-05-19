@@ -1,0 +1,135 @@
+--------------------------------------------- 
+----------------- Class 75 ------------------
+
+-- Open directory of Mysql in xampp
+cd /d DriveLetter:\xampp\mysql\bin
+
+-- Run Mysql
+mysql -u root -p
+
+-- Create database
+create database NewDatabaseName;
+
+-- Delete database
+drop database DatabaseName;
+
+-- Select database
+use DatabaseName;
+
+-- Show tables
+show tables;
+
+-- Create table
+create table TableNameInPlural
+(
+ ColumnName DataType Attribute(optional),   
+ ColumnName DataType Attribute(optional),  
+ ColumnName DataType Attribute(optional)   
+);
+
+   -- Example
+    create table students
+    (
+    id int unsigned primary key auto_increment,
+    name varchar(100) not null,
+    email varchar(120) unique,
+    address varchar(255),
+    is_inactive tinyint default 0
+    );
+
+-- Show particulat table  
+describe TableName;
+OR
+desc TableName;
+
+-- Delete Table
+drop table TableName;
+
+--------------------------------------------- 
+----------------- Class 76 ------------------
+
+-- Create database if that database does not exists
+create database if not exists DatabaseName
+
+-- Delete database if that database exists
+drop database if exists DatabaseName
+
+-- Show every data from a table
+select * from TableName;
+
+-- Insert data into table
+insert into TableName(ColumnName, ColumnName, ColumnName,ColumnName) values (Data, 'Data', 'Data', Data);
+  --Example
+  insert into students(name, address, email,is_inactive) values('Mina', 'Mirpur', 'mina@example.com', 0);
+    
+
+--------------------------------------------- 
+----------------- Class 78 ------------------
+
+--Show specific column data
+SELECT ColumnName FROM TableName; 
+
+-- Show multiple column data based on a condition
+select ColumnName1, ColumnName2 from TableName where Condtion=CondtionValue;
+
+-- Show specific column data ordered ascending or descending
+SELECT ColumnName FROM TableName ORDER BY ColumnName ASC;
+SELECT ColumnName FROM TableName ORDER BY ColumnName DESC;
+
+-- Update a row data
+UPDATE TableName SET ColumnName1="UpdatedValue", ColumnName1="UpdatedValue"  WHERE ColumnName="CurrentValue";
+
+  -- Example
+  UPDATE students SET name="Ali", email="ali@gmail.com" WHERE id=9;
+
+-- Delete a row data
+DELETE FROM TableName WHERE ColumnName=Value;
+
+-- Add a column in a existing table
+ALTER TABLE TableName ADD COLUMN NewCloumnName NewCloumnType NewCloumnAttribute Positon(BEFORE/AFTER) ColumnName;
+
+  -- Example
+  ALTER TABLE students ADD COLUMN phone varchar(20) AFTER email;
+
+-- Delete a column in a existing table
+ALTER TABLE TableName DROP COLUMN CloumnName;
+
+-- Rename a column name
+ALTER TABLE TableName CHANGE CurrentColumnName NewColumnName ColumnDataType;
+
+  --Example
+  ALTER TABLE students CHANGE name full_name VARCHAR(255);
+
+-- Joining two diffrent tables data
+SELECT TableOneName.CloumnName, TableTwoName.CloumnName FROM
+TableOneName, TableTwoName WHERE TableOneName.CloumnNameWithSameValue = TableTwoName.CloumnNameWithSameValue;
+   
+    -- Example
+    SELECT results.student_id, students.full_name, results.score, results.exam_type FROM
+    students, results WHERE results.student_id = students.id;
+
+-- Joining two diffrent tables data with alias
+SELECT TableOnoAlias.CloumnName as Alias, TableTwoAlias.CloumnName as Alisas FROM
+TableOneName as TableOnoAlias, TableTwoName as TableTwoAlias WHERE TableOneName.CloumnNameWithSameValue = TableTwoName.CloumnNameWithSameValue;
+
+    -- Example
+    SELECT r.student_id, s.full_name, r.score as marks, r.exam_type FROM
+    students AS s, results r WHERE r.student_id = s.id;
+
+
+-- Joining two diffrent tables data with multiple condtions
+
+SELECT TableOneName.CloumnName, TableTwoName.CloumnName FROM
+TableOneName, TableTwoName WHERE TableOneName.CloumnNameWithSameValue = TableTwoName.CloumnNameWithSameValue AND SeondCondition;
+
+--  Create View
+
+CREATE VIEW vw_Table_Name  as SELECT TableOneName.CloumnName, TableTwoName.CloumnName FROM
+TableOneName, TableTwoName WHERE TableOneName.CloumnNameWithSameValue = TableTwoName.CloumnNameWithSameValue;
+
+  -- Example
+  CREATE VIEW view_student_results  as SELECT r.student_id, s.full_name, r.score as marks, r.exam_type FROM
+  students AS s, results r WHERE r.student_id = s.id;
+
+--------------------------------------------- 
+----------------- Class 79 ------------------
